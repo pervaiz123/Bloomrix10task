@@ -1,5 +1,4 @@
 <!doctype html>
-
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -9,12 +8,9 @@
       content="Bloomrix Internship Hub — a practical learning and internship roadmap."
     />
     <meta name="theme-color" content="#f5f7fb" />
-
     <title>Bloomrix Internship Hub | Learn, Build, Grow</title>
-
     <link rel="stylesheet" href="style.css" />
   </head>
-
   <body>
     <a class="skip-link" href="#main-content">Skip to main content</a>
 
@@ -30,13 +26,14 @@
           type="checkbox"
           id="nav-toggle"
           aria-label="Toggle navigation"
+          aria-controls="main-navigation"
         />
         <label class="nav-toggle-label" for="nav-toggle">
           <span></span><span></span><span></span>
           <span class="sr-only">Toggle navigation</span>
         </label>
 
-        <nav class="main-nav" aria-label="Main navigation">
+        <nav class="main-nav" id="main-navigation" aria-label="Main navigation">
           <a class="nav-link is-active" href="#home" aria-current="page"
             >Home</a
           >
@@ -48,7 +45,11 @@
         </nav>
 
         <label class="theme-control" for="theme-toggle">
-          <input type="checkbox" id="theme-toggle" />
+          <input
+            type="checkbox"
+            id="theme-toggle"
+            aria-label="Enable dark mode"
+          />
           <span class="theme-switch" aria-hidden="true"></span>
           <span>Dark mode</span>
         </label>
@@ -71,13 +72,12 @@
               and grow with confidence.
             </p>
             <div class="hero-actions">
-              <a class="button button-primary" href="#roadmap"
-                >Explore the roadmap <span aria-hidden="true">↗</span></a
-              >
-
-              <a class="button button-quiet" href="#about"
-                >Discover the program</a
-              >
+              <a class="button button-primary" href="#roadmap">
+                Explore the roadmap <span aria-hidden="true">↗</span>
+              </a>
+              <a class="button button-quiet" href="#about">
+                Discover the program
+              </a>
             </div>
             <div
               class="hero-proof"
@@ -89,6 +89,7 @@
               <div><strong>01</strong><span>career-ready portfolio</span></div>
             </div>
           </div>
+
           <div class="hero-visual">
             <div class="hero-image-wrap">
               <img
@@ -100,17 +101,17 @@
             </div>
             <div class="floating-card floating-card-top">
               <span class="floating-icon" aria-hidden="true">✦</span>
-              <span
-                ><strong>Learn with purpose</strong
-                ><small>Practice. Review. Improve.</small></span
-              >
+              <span>
+                <strong>Learn with purpose</strong>
+                <small>Practice. Review. Improve.</small>
+              </span>
             </div>
             <div class="floating-card floating-card-bottom">
               <span class="progress-ring" aria-hidden="true">↗</span>
-              <span
-                ><strong>Build your portfolio</strong
-                ><small>Show what you can do</small></span
-              >
+              <span>
+                <strong>Build your portfolio</strong>
+                <small>Show what you can do</small>
+              </span>
             </div>
             <span class="hero-orbit orbit-one" aria-hidden="true"></span>
             <span class="hero-orbit orbit-two" aria-hidden="true"></span>
@@ -134,9 +135,9 @@
               will work through core concepts, apply them to realistic tasks,
               and document your progress as you go.
             </p>
-            <a class="text-link" href="#contact"
-              >Ask about the program <span aria-hidden="true">→</span></a
-            >
+            <a class="text-link" href="#contact">
+              Ask about the program <span aria-hidden="true">→</span>
+            </a>
           </div>
           <div class="about-panel">
             <div class="about-image">
@@ -275,13 +276,11 @@
             <h2 id="roadmap-title">
               A roadmap with <span>clear milestones.</span>
             </h2>
-
             <p>
               Move from foundations to a finished project through a sequence of
               focused stages.
             </p>
           </div>
-
           <ol class="roadmap-list">
             <li class="roadmap-item">
               <span class="roadmap-step" aria-hidden="true"></span>
@@ -360,8 +359,8 @@
           <div class="assignment-grid">
             <article class="assignment-card">
               <div class="assignment-top">
-                <span class="assignment-type">HTML</span
-                ><span class="status status-complete">Completed</span>
+                <span class="assignment-type">HTML</span>
+                <span class="status status-complete">Completed</span>
               </div>
               <h3>Semantic profile page</h3>
               <p>
@@ -374,8 +373,8 @@
             </article>
             <article class="assignment-card">
               <div class="assignment-top">
-                <span class="assignment-type">CSS</span
-                ><span class="status status-progress">In progress</span>
+                <span class="assignment-type">CSS</span>
+                <span class="status status-progress">In progress</span>
               </div>
               <h3>Responsive layout lab</h3>
               <p>
@@ -388,8 +387,8 @@
             </article>
             <article class="assignment-card">
               <div class="assignment-top">
-                <span class="assignment-type">CSS</span
-                ><span class="status status-pending">Pending</span>
+                <span class="assignment-type">CSS</span>
+                <span class="status status-pending">Pending</span>
               </div>
               <h3>Complete internship website</h3>
               <p>
@@ -488,8 +487,8 @@
             <div class="contact-detail">
               <span class="contact-detail-icon" aria-hidden="true">✉</span>
               <div>
-                <strong>Email the program team</strong
-                ><a href="mailto:hello@bloomrix.example"
+                <strong>Email the program team</strong>
+                <a href="mailto:hello@bloomrix.example"
                   >hello@bloomrix.example</a
                 >
               </div>
@@ -497,8 +496,8 @@
             <div class="contact-detail">
               <span class="contact-detail-icon" aria-hidden="true">◷</span>
               <div>
-                <strong>Response window</strong
-                ><span>Typically within 2–3 working days</span>
+                <strong>Response window</strong>
+                <span>Typically within 2–3 working days</span>
               </div>
             </div>
             <div class="contact-callout">
@@ -518,8 +517,8 @@
             </div>
             <div class="form-grid">
               <div class="form-field">
-                <label for="app-name">Full name <span>*</span></label
-                ><input
+                <label for="app-name">Full name <span>*</span></label>
+                <input
                   id="app-name"
                   name="name"
                   type="text"
@@ -530,8 +529,8 @@
                 />
               </div>
               <div class="form-field">
-                <label for="app-email">Email address <span>*</span></label
-                ><input
+                <label for="app-email">Email address <span>*</span></label>
+                <input
                   id="app-email"
                   name="email"
                   type="email"
@@ -543,7 +542,8 @@
               <div class="form-field">
                 <label for="app-track"
                   >Preferred learning track <span>*</span></label
-                ><select id="app-track" name="track" required>
+                >
+                <select id="app-track" name="track" required>
                   <option value="" selected disabled>Select a track</option>
                   <option value="frontend">Frontend development</option>
                   <option value="backend">Backend development</option>
@@ -552,16 +552,16 @@
                 </select>
               </div>
               <div class="form-field">
-                <label for="app-level">Current experience</label
-                ><select id="app-level" name="experience">
+                <label for="app-level">Current experience</label>
+                <select id="app-level" name="experience">
                   <option value="beginner">Beginner</option>
                   <option value="some">Some practice</option>
                   <option value="intermediate">Intermediate</option>
                 </select>
               </div>
               <div class="form-field form-field-full">
-                <label for="app-message">Why are you interested?</label
-                ><textarea
+                <label for="app-message">Why are you interested?</label>
+                <textarea
                   id="app-message"
                   name="message"
                   rows="4"
@@ -569,15 +569,16 @@
                 ></textarea>
               </div>
               <div class="form-field form-field-full">
-                <label class="checkbox-label"
-                  ><input type="checkbox" name="updates" value="yes" /> Send me
-                  program updates and learning resources.</label
-                >
+                <label class="checkbox-label">
+                  <input type="checkbox" name="updates" value="yes" />
+                  Send me program updates and learning resources.
+                </label>
               </div>
               <div class="form-field form-field-full">
                 <label for="disabled-field"
                   >Reference code (example disabled state)</label
-                ><input
+                >
+                <input
                   id="disabled-field"
                   type="text"
                   value="Assigned after review"
@@ -652,37 +653,99 @@
     <footer class="site-footer">
       <div class="container footer-main">
         <div class="footer-brand-block">
-          <a class="brand brand-footer" href="#top"
-            ><span class="brand-mark" aria-hidden="true">B</span
-            ><span class="brand-copy"
-              >bloomrix<span> internship hub</span></span
-            ></a
-          >
+          <a class="brand brand-footer" href="#top">
+            <span class="brand-mark" aria-hidden="true">B</span>
+            <span class="brand-copy">bloomrix<span> internship hub</span></span>
+          </a>
           <p>
             Learn with intention. Build with confidence. Grow through practice.
           </p>
         </div>
         <div class="footer-column">
           <h2>Explore</h2>
-          <a href="#about">About</a><a href="#skills">Skills</a
-          ><a href="#roadmap">Roadmap</a>
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#roadmap">Roadmap</a>
         </div>
         <div class="footer-column">
           <h2>Resources</h2>
-          <a href="#assignments">Assignments</a
-          ><a href="#schedule">Program overview</a><a href="#faq">FAQs</a>
+          <a href="#assignments">Assignments</a>
+          <a href="#schedule">Program overview</a>
+          <a href="#faq">FAQs</a>
         </div>
         <div class="footer-column">
           <h2>Get in touch</h2>
-          <a href="#contact">Application form</a
-          ><a href="mailto:hello@bloomrix.example">Email the team</a
-          ><a href="#top">Back to top ↑</a>
+          <a href="#contact">Application form</a>
+          <a href="mailto:hello@bloomrix.example">Email the team</a>
+          <a href="#top">Back to top ↑</a>
         </div>
       </div>
       <div class="container footer-bottom">
-        <span>© 2026 Bloomrix Internship Hub. Learning project.</span
-        ><span>Designed for learning, built for every screen.</span>
+        <span>© 2026 Bloomrix Internship Hub. Learning project.</span>
+        <span>Designed for learning, built for every screen.</span>
       </div>
     </footer>
+
+    <script>
+      const themeToggle = document.querySelector("#theme-toggle");
+      const systemTheme = window.matchMedia("(prefers-color-scheme: dark)");
+      const themeStorageKey = "bloomrix-theme";
+
+      // Read a previously saved theme choice, if one exists.
+      function getSavedTheme() {
+        try {
+          return localStorage.getItem(themeStorageKey);
+        } catch (error) {
+          return null;
+        }
+      }
+
+      // Apply the theme to both the checkbox and the document.
+      function applyTheme(theme) {
+        const isDark = theme === "dark";
+
+        themeToggle.checked = isDark;
+        document.body.dataset.theme = theme;
+      }
+
+      // Use the saved preference first; otherwise use the system preference.
+      const savedTheme = getSavedTheme();
+
+      if (savedTheme === "dark" || savedTheme === "light") {
+        applyTheme(savedTheme);
+      } else {
+        applyTheme(systemTheme.matches ? "dark" : "light");
+      }
+
+      // Save the user's choice when the theme control is changed.
+      themeToggle.addEventListener("change", () => {
+        const selectedTheme = themeToggle.checked ? "dark" : "light";
+
+        applyTheme(selectedTheme);
+
+        try {
+          localStorage.setItem(themeStorageKey, selectedTheme);
+        } catch (error) {
+          // The theme still works if browser storage is unavailable.
+        }
+      });
+
+      // Follow system changes only when the user has not saved a preference.
+      systemTheme.addEventListener("change", (event) => {
+        if (getSavedTheme() === null) {
+          applyTheme(event.matches ? "dark" : "light");
+        }
+      });
+
+      // Close the mobile navigation after a navigation link is selected.
+      const navToggle = document.querySelector("#nav-toggle");
+      const navLinks = document.querySelectorAll("#main-navigation a");
+
+      navLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          navToggle.checked = false;
+        });
+      });
+    </script>
   </body>
 </html>

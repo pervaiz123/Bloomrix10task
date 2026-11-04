@@ -47,7 +47,7 @@
   :root {
     color-scheme: light;
     --color-ink: #182238;
-    --color-muted: #66738a;
+    --color-muted: #5f6b80;
     --color-primary: #5b55e7;
     --color-primary-strong: #4640c9;
     --color-accent: #12a891;
@@ -84,22 +84,6 @@
     font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     font-synthesis: none;
     text-rendering: optimizeLegibility;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    :root {
-      color-scheme: dark;
-      --color-ink: #edf0ff;
-      --color-muted: #b0bad0;
-      --color-page: #111629;
-      --color-surface: #1a2238;
-      --color-soft: #252c4c;
-      --color-line: #303a56;
-      --color-dark: #0b1020;
-      --color-dark-surface: #171f38;
-      --shadow-soft: 0 12px 36px rgba(0, 0, 0, .18);
-      --shadow-card: 0 22px 60px rgba(0, 0, 0, .28);
-    }
   }
 
   html {
@@ -447,7 +431,9 @@
   .hero {
     position: relative;
     overflow: hidden;
-    background: radial-gradient(circle at 85% 18%, rgba(111, 104, 244, .14), transparent 26rem), linear-gradient(135deg, var(--color-page), var(--color-soft));
+    background:
+      radial-gradient(circle at 85% 18%, rgba(111, 104, 244, .14), transparent 26rem),
+      linear-gradient(135deg, var(--color-page), var(--color-soft));
   }
 
   .hero-copy {
@@ -1059,7 +1045,7 @@
 
   .form-field input::placeholder,
   .form-field textarea::placeholder {
-    color: #8994a8;
+    color: var(--color-muted);
     opacity: 1;
   }
 
@@ -1220,8 +1206,12 @@
 
 @layer states {
 
-  /* The checked theme control overrides system preference variables. */
-  body:has(#theme-toggle:checked) {
+  /*
+    Light mode uses the :root variables in the base layer.
+    Only dark mode needs to override those variables.
+    JavaScript sets data-theme to dark or light on the body.
+  */
+  body[data-theme="dark"] {
     --color-ink: #edf0ff;
     --color-muted: #b0bad0;
     --color-page: #111629;
@@ -1235,40 +1225,27 @@
     color-scheme: dark;
   }
 
-  /* Unchecked means light mode, even when the OS prefers dark mode. */
-  body:not(:has(#theme-toggle:checked)) {
-    --color-ink: #182238;
-    --color-muted: #66738a;
-    --color-page: #f5f7fb;
-    --color-surface: #ffffff;
-    --color-soft: #eef0ff;
-    --color-line: #e1e6f0;
-    --color-dark: #171b35;
-    --color-dark-surface: #202747;
-    --shadow-soft: 0 12px 36px rgba(29, 39, 75, .07);
-    --shadow-card: 0 22px 60px rgba(29, 39, 75, .12);
-    color-scheme: light;
+  body[data-theme="dark"] .hero {
+    background:
+      radial-gradient(circle at 85% 18%, rgba(111, 104, 244, .2), transparent 26rem),
+      linear-gradient(135deg, #111629, #202747);
   }
 
-  body:has(#theme-toggle:checked) .hero {
-    background: radial-gradient(circle at 85% 18%, rgba(111, 104, 244, .2), transparent 26rem), linear-gradient(135deg, #111629, #202747);
-  }
-
-  body:has(#theme-toggle:checked) .section-soft {
+  body[data-theme="dark"] .section-soft {
     background: #171f34;
   }
 
-  body:has(#theme-toggle:checked) .status-complete {
+  body[data-theme="dark"] .status-complete {
     background: #173c35;
     color: #9ce6c8;
   }
 
-  body:has(#theme-toggle:checked) .status-progress {
+  body[data-theme="dark"] .status-progress {
     background: #49391f;
     color: #ffd28b;
   }
 
-  body:has(#theme-toggle:checked) .status-pending {
+  body[data-theme="dark"] .status-pending {
     background: #30394e;
     color: #c0c9dc;
   }
@@ -1290,8 +1267,6 @@
   }
 
   @container (min-width: 340px) {
-
-    /* Wider reusable skill cards can give their content more breathing room. */
     .skill-card h3 {
       font-size: 1.18rem;
     }
@@ -1317,8 +1292,6 @@
 }
 
 @layer responsive {
-
-  /* Mobile-first: base styles are single-column. */
   @media (min-width: 600px) {
     .value-grid {
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1398,9 +1371,16 @@
     }
 
     .nav-toggle {
+      display: block;
       position: absolute;
       width: 1px;
       height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
       opacity: 0;
     }
 
@@ -1488,11 +1468,60 @@
     }
 
     .floating-card {
+      max-width: 48%;
+      gap: .45rem;
       padding: .65rem;
+      overflow-wrap: anywhere;
+    }
+
+    .floating-card strong {
+      font-size: .7rem;
+    }
+
+    .floating-card small {
+      font-size: .62rem;
     }
 
     .hero-proof {
       gap: 1rem;
+    }
+
+    .hero-visual {
+      width: 100%;
+      max-width: 100%;
+    }
+
+    .floating-icon,
+    .progress-ring {
+      width: 2rem;
+      flex: 0 0 auto;
+    }
+  }
+
+  @media (max-width: 340px) {
+    .header-inner {
+      column-gap: .5rem;
+    }
+
+    .brand-copy {
+      font-size: .82rem;
+    }
+
+    .nav-toggle-label {
+      width: 2.35rem;
+      height: 2.35rem;
+    }
+
+    .hero-copy h1 {
+      font-size: clamp(2.2rem, 12vw, 2.7rem);
+    }
+
+    .floating-card {
+      padding: .5rem;
+    }
+
+    .hero-proof {
+      gap: .8rem;
     }
   }
 }
@@ -1603,14 +1632,16 @@
       break-inside: avoid;
     }
 
-    * {
+    *,
+    *::before,
+    *::after {
       animation: none !important;
       transition: none !important;
     }
   }
 }
 
-/* Motion is optional: keep the interface calm when requested. */
+/* Motion is optional: respect the user's reduced-motion preference. */
 @keyframes image-enter {
   from {
     opacity: 0;
